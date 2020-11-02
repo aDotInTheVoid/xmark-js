@@ -13,6 +13,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  router: {
+    base: 'xmark-js',
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
