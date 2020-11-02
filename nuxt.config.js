@@ -14,7 +14,7 @@ export default {
   },
 
   router: {
-    base: 'xmark-js',
+    base: '/xmark-js/',
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
