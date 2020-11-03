@@ -20,6 +20,7 @@
         >
           GitHub
         </a>
+        <NuxtLink to="/blog" class="button--grey"> blog </NuxtLink>
       </div>
     </div>
   </div>
