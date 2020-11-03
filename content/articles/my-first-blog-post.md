@@ -16,9 +16,6 @@ tags:
 
 Welcome to my first blog post using content module
 
-<author :author="author"></author>
-
-
 ## This is a heading
 
 This is some more info
