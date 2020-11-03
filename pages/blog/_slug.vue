@@ -51,12 +51,6 @@ export default {
 .nuxt-content p {
   margin-bottom: 20px;
 }
-
-.nuxt-content {
-  max-width: 50em;
-  display: block;
-}
-
 #__layout {
   display: grid;
   grid-template-columns:
