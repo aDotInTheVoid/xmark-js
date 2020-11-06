@@ -28,7 +28,7 @@ export default {
     }
   },
   watch: {
-    activeTabIndex(newValue, oldValue) {
+    activeTabIndex(newValue, _oldValue) {
       this.switchTab(newValue)
     },
   },
