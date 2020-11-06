@@ -4,15 +4,14 @@
   </article>
 </template>
 
-
 <script>
-  export default {
-    async asyncData({ $content, params }) {
-      // fetch our article here
+export default {
+  async asyncData({ $content, params }) {
+    // fetch our article here
 
     const article = await $content('/', params.slug).fetch()
 
-      return { article }
-    }
-  }
+    return { article }
+  },
+}
 </script>

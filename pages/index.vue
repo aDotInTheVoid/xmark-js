@@ -20,6 +20,10 @@
         >
           GitHub
         </a>
+
+        <NuxtLink to="/components" class="button--grey">
+          Components demo
+        </NuxtLink>
       </div>
     </div>
   </div>
