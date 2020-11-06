@@ -3,7 +3,7 @@
     v-if="prev || next"
     class="grid grid-cols-2 gap-2 lg:px-8 pt-4 border-t dark:border-gray-800"
     :class="{
-      'lg:border-t-0': settings.layout === 'single',
+      'lg:border-t-0': settings.layout === 'single'
     }"
   >
     <NuxtLink
@@ -35,15 +35,17 @@ export default {
   props: {
     prev: {
       type: Object,
-      default: () => null,
+      default: () => null
     },
     next: {
       type: Object,
-      default: () => null,
-    },
+      default: () => null
+    }
   },
   computed: {
-    ...mapGetters(['settings']),
-  },
+    ...mapGetters([
+      'settings'
+    ])
+  }
 }
 </script>

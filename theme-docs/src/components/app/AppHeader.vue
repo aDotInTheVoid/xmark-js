@@ -20,39 +20,23 @@
               class="h-8 max-w-full light-img"
               :alt="settings.title"
             />
-            <img
-              v-if="logo"
-              :src="logo.dark"
-              class="h-8 max-w-full dark-img"
-              :alt="settings.title"
-            />
+            <img v-if="logo" :src="logo.dark" class="h-8 max-w-full dark-img" :alt="settings.title" />
           </NuxtLink>
         </div>
-        <div
-          v-if="settings.layout !== 'single'"
-          class="flex-1 flex justify-start w-4/6"
-        >
-          <AppSearchAlgolia
-            v-if="settings.algolia"
-            :options="settings.algolia"
-            :settings="settings"
-          />
+        <div v-if="settings.layout !== 'single'" class="flex-1 flex justify-start w-4/6">
+          <AppSearchAlgolia v-if="settings.algolia" :options="settings.algolia" :settings="settings" />
           <AppSearch v-else class="hidden lg:block" />
         </div>
         <div
           class="lg:w-1/5 flex items-center pl-4 lg:pl-8"
-          :class="{
-            'justify-between': lastRelease && settings.layout !== 'single',
-            'justify-end': !lastRelease || settings.layout === 'single',
-          }"
+          :class="{ 'justify-between': lastRelease && settings.layout !== 'single', 'justify-end': !lastRelease || settings.layout === 'single' }"
         >
           <NuxtLink
             v-if="lastRelease"
             to="/releases"
             class="font-semibold leading-none text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 text-base mr-4"
             exact-active-class="text-primary-500"
-            >{{ lastRelease.name }}</NuxtLink
-          >
+          >{{ lastRelease.name }}</NuxtLink>
           <div class="flex items-center">
             <a
               v-if="settings.twitter"
@@ -63,7 +47,7 @@
               name="Twitter"
               class="text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 ml-4"
               :class="{
-                'hidden lg:block': settings.layout !== 'single',
+                'hidden lg:block': settings.layout !== 'single'
               }"
             >
               <IconTwitter class="w-5 h-5" />
@@ -77,7 +61,7 @@
               name="Github"
               class="text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 ml-4"
               :class="{
-                'hidden lg:block': settings.layout !== 'single',
+                'hidden lg:block': settings.layout !== 'single'
               }"
             >
               <IconGithub class="w-5 h-5" />
@@ -103,22 +87,26 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
-      scrolled: 0,
+      scrolled: 0
     }
   },
   computed: {
-    ...mapGetters(['settings', 'githubUrls', 'lastRelease']),
+    ...mapGetters([
+      'settings',
+      'githubUrls',
+      'lastRelease'
+    ]),
     menu: {
-      get() {
+      get () {
         return this.$store.state.menu.open
       },
-      set(val) {
+      set (val) {
         this.$store.commit('menu/toggle', val)
-      },
+      }
     },
-    logo() {
+    logo () {
       if (!this.settings.logo) {
         return
       }
@@ -129,27 +117,27 @@ export default {
 
       return {
         light: this.settings.logo,
-        dark: this.settings.logo,
+        dark: this.settings.logo
       }
-    },
+    }
   },
-  beforeMount() {
+  beforeMount () {
     window.addEventListener('scroll', this.handleScroll)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
-    handleScroll() {
+    handleScroll () {
       this.scrolled = window.scrollY > 0
     },
-    scrollToTop() {
+    scrollToTop () {
       if (window.innerWidth >= 1280) {
         return
       }
       window.scrollTo(0, 0)
     },
-    noop() {},
-  },
+    noop () { }
+  }
 }
 </script>

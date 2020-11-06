@@ -18,15 +18,15 @@ export default {
   props: {
     src: {
       type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      isIntersecting: false,
+      required: true
     }
   },
-  mounted() {
+  data () {
+    return {
+      isIntersecting: false
+    }
+  },
+  mounted () {
     if (!window.IntersectionObserver) {
       this.isIntersecting = true
       return
@@ -43,12 +43,12 @@ export default {
     })
     this.__observer.observe(this.$el)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.__observer) {
       this.__observer.disconnect()
       delete this.__observer
     }
-  },
+  }
 }
 </script>
 

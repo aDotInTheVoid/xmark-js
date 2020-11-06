@@ -19,12 +19,16 @@ export default {
   props: {
     document: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
-    ...mapGetters(['settings', 'githubUrls', 'lastRelease']),
-    link() {
+    ...mapGetters([
+      'settings',
+      'githubUrls',
+      'lastRelease'
+    ]),
+    link () {
       if (!this.settings.github) {
         return
       }
@@ -34,11 +38,9 @@ export default {
         'edit',
         this.settings.defaultBranch,
         this.settings.defaultDir,
-        `content${this.document.path}${this.document.extension}`,
-      ]
-        .filter((path) => !!path)
-        .join('/')
-    },
-  },
+        `content${this.document.path}${this.document.extension}`
+      ].filter(path => !!path).join('/')
+    }
+  }
 }
 </script>

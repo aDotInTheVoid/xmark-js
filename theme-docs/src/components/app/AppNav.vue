@@ -1,11 +1,9 @@
 <template>
   <aside
     class="w-full lg:w-1/5 lg:block fixed lg:relative inset-0 mt-16 lg:mt-0 z-30 bg-white dark:bg-gray-900 lg:bg-transparent lg:dark:bg-transparent"
-    :class="{ block: menu, hidden: !menu }"
+    :class="{ 'block': menu, 'hidden': !menu }"
   >
-    <div
-      class="lg:sticky lg:top-16 overflow-y-auto h-full lg:h-auto lg:max-h-(screen-16)"
-    >
+    <div class="lg:sticky lg:top-16 overflow-y-auto h-full lg:h-auto lg:max-h-(screen-16)">
       <ul class="p-4 lg:py-8 lg:pl-0 lg:pr-8">
         <li v-if="!settings.algolia" class="mb-4 lg:hidden">
           <AppSearch />
@@ -15,21 +13,15 @@
           :key="category"
           class="mb-4"
           :class="{
-            active: isCategoryActive(docs),
-            'lg:mb-0': index === Object.keys(categories).length - 1,
+            'active': isCategoryActive(docs),
+            'lg:mb-0': index === Object.keys(categories).length - 1
           }"
         >
           <p
             class="mb-2 text-gray-500 uppercase tracking-wider font-bold text-sm lg:text-xs"
-          >
-            {{ category }}
-          </p>
+          >{{ category }}</p>
           <ul>
-            <li
-              v-for="doc of docs"
-              :key="doc.slug"
-              class="text-gray-700 dark:text-gray-300"
-            >
+            <li v-for="doc of docs" :key="doc.slug" class="text-gray-700 dark:text-gray-300">
               <NuxtLink
                 :to="localePath(doc.to)"
                 class="px-2 rounded font-medium py-1 hover:text-primary-500 flex items-center justify-between"
@@ -47,11 +39,7 @@
           </ul>
         </li>
         <li class="lg:hidden">
-          <p
-            class="mb-2 text-gray-500 uppercase tracking-wider font-bold text-sm lg:text-xs"
-          >
-            More
-          </p>
+          <p class="mb-2 text-gray-500 uppercase tracking-wider font-bold text-sm lg:text-xs">More</p>
           <div class="flex items-center ml-2">
             <a
               v-if="settings.twitter"
@@ -90,24 +78,27 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['settings', 'githubUrls']),
+    ...mapGetters([
+      'settings',
+      'githubUrls'
+    ]),
     menu: {
-      get() {
+      get () {
         return this.$store.state.menu.open
       },
-      set(val) {
+      set (val) {
         this.$store.commit('menu/toggle', val)
-      },
+      }
     },
-    categories() {
+    categories () {
       return this.$store.state.categories[this.$i18n.locale]
-    },
+    }
   },
   methods: {
-    isCategoryActive(documents) {
-      return documents.some((document) => document.to === this.$route.fullPath)
+    isCategoryActive (documents) {
+      return documents.some(document => document.to === this.$route.fullPath)
     },
-    isDocumentNew(document) {
+    isDocumentNew (document) {
       if (process.server) {
         return
       }
@@ -121,7 +112,7 @@ export default {
       }
 
       return false
-    },
-  },
+    }
+  }
 }
 </script>

@@ -17,21 +17,21 @@ export default {
     type: {
       type: String,
       default: 'info',
-      validator(value) {
+      validator (value) {
         return ['info', 'success', 'warning', 'danger'].includes(value)
-      },
-    },
+      }
+    }
   },
   computed: {
-    icon() {
-      return {
+    icon () {
+      return ({
         info: 'IconInformationCircle',
         success: 'IconCheckCircle',
         warning: 'IconExclamationCircle',
-        danger: 'IconXCircle',
-      }[this.type]
-    },
-  },
+        danger: 'IconXCircle'
+      })[this.type]
+    }
+  }
 }
 </script>
 

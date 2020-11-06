@@ -34,20 +34,20 @@ import ClickAway from '~/directives/click-away'
 export default {
   name: 'Dropdown',
   directives: {
-    'click-away': ClickAway,
+    'click-away': ClickAway
   },
-  data() {
+  data () {
     return {
-      open: false,
+      open: false
     }
   },
   methods: {
-    toggle() {
+    toggle () {
       this.open = !this.open
     },
-    close() {
+    close () {
       this.open = false
-    },
-  },
+    }
+  }
 }
 </script>
