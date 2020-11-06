@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">xmark-js</h1>
+      <h1 class="title">xmark-js3</h1>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -20,7 +20,6 @@
         >
           GitHub
         </a>
-        <NuxtLink to="/blog" class="button--grey"> blog </NuxtLink>
       </div>
     </div>
   </div>
