@@ -38,3 +38,5 @@ items:
 
 <!-- TODO: Let this be more natural -->
 <list :items="items"></list>
+
+<AppColorSwitcher />
