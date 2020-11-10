@@ -14,3 +14,9 @@
 //     expect(alert.text()).to.contain('FooBarBaz')
 //   })
 // })
+
+describe('Having no tests', () => {
+  test('not the untestable', () => {
+    expect(true).toBe(true)
+  })
+})
