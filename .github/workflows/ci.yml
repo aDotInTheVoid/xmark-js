@@ -51,7 +51,7 @@ jobs:
       - run: yarn build
       - run: yarn generate
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3.8.0
         if: github.ref == 'refs/heads/trunk'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
