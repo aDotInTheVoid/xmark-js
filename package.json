@@ -20,7 +20,7 @@
     "core-js": "^3.10.0",
     "nuxt": "^2.15.4",
     "prism-themes": "^1.6.0",
-    "tailwind-css-variables": "^2.0.3",
+    "tailwind-css-variables": "^3.0.0",
     "theme-colors": "^0.0.5"
   },
   "devDependencies": {
